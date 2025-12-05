@@ -151,4 +151,5 @@ echo "Done."
 echo "Make sure Hyprland starts Waybar, e.g. in hyprland.conf:"
 echo '  exec-once = waybar'
 echo
+echo "!!IMPORTANT!! MAKE SURE YOU ALTER THE CONFIG AT ~/.config/waybar/config.jsonc TO CHANGE WHAT DISPLAY IT APPEARS ON!"
 echo "You may also want to run 'wal -i /path/to/wallpaper' once to generate pywal colors."
