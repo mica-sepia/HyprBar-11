@@ -1,0 +1,229 @@
+{
+   "layer": "top",
+   "reload_style_on_change": true,
+   "exclusive": true,
+   "margin-bottom": 5,
+   "margin-left": 10,
+   "margin-right": 10,
+   "passthrough": false,
+   "output": ["eDP-1"],
+   "position": "bottom",
+   "height": 60,
+   "spacing": 4,
+
+   "modules-left": ["group/left"],
+   "modules-center": ["group/center"],
+   "modules-right": ["group/right"],
+
+   "group/left": {
+     "orientation": "horizontal",
+     "modules":["image#start", "group/systeminfo" ]
+   },
+   "group/center": {
+     "orientation": "horizontal",
+     "modules": ["group/reactive"]
+   },
+   "group/right": {
+     "orientation": "horizontal",
+     "modules": ["custom/nowplaying","group/systemcontrol","group/dateandtime"]
+   },
+
+
+   "group/reactive": {
+     "orientation": "horizontal",
+     "modules": ["custom/notification", "hyprland/workspaces", "custom/weather"]
+   },
+
+   "group/dateandtime": {
+     "orientation": "vertical",
+     "modules": ["clock"]
+   },
+
+   "group/systemcontrol": {
+     "orientation": "horizontal",
+     "modules": ["network","backlight","pulseaudio","battery"],
+     "margin-right": 20
+   },
+
+   "group/systeminfo": {
+      "orientation": "horizontal",
+      "modules": ["wlr/taskbar"],
+      "margin-left": 20
+
+   },
+
+  "hyprland/workspaces": {
+     "persistent-workspaces": {
+        "*": 5
+     },
+     "format": "{id}",
+     "format-focused": "{id}",
+     "format-unfocused": "{id}", 
+     "on-click": "hyprctl dispatch workspace {id}",
+     "on-scroll-up": "hyprctl dispatch workspace e-1",
+     "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+
+"custom/weather": {
+  "format": "{text}",
+  "return-type": "json",
+  "exec": "/home/mica/.config/waybar/scripts/weather.sh",
+  "interval": 600,
+  "tooltip": true,
+  "markup": true
+},
+
+
+
+"custom/notification": {
+  "tooltip": true,
+  "tooltip-format": "{alt}",
+  "format": "<span font=\"Material Symbols Rounded\">{icon}</span>",
+
+ 
+  "format-icons": {
+    "none": "notifications_none",                 
+    "notification": "notifications",              
+
+    "dnd-none": "do_not_disturb_on",              
+    "dnd-notification": "do_not_disturb_on",      
+
+    "inhibited-none": "block",                    
+    "inhibited-notification": "block",
+
+    "dnd-inhibited-none": "do_not_disturb_on",    
+    "dnd-inhibited-notification": "do_not_disturb_on"
+  },
+
+  "return-type": "json",
+  "exec-if": "which swaync-client",
+  "exec": "swaync-client -swb",
+
+  "on-click": "sleep 0.1 && swaync-client -t -sw",
+  "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+
+  "escape": true
+},
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 26,
+    "tooltip": true,
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "icon-theme": "Papirus-Dark",
+    "ignore-list": [
+      "org.kde.konsole"  
+    ],
+    "all-outputs": false,   
+    "active-first": false
+},
+
+
+   "cpu": {
+      "interval": 1,
+      "format": "<span font='Material Symbols Rounded'>memory</span>",
+      "tooltip-format": "CPU Usage: {}%"
+   },
+
+   "memory": {
+      "interval": 1,
+      "format": "<span font='Material Symbols Rounded'>memory_alt</span>",
+      "tooltip-format": "Total RAM: {total}GB\n Used: {used}GB\n Avaliable: {avail}GB"
+   },
+
+   "disk": {
+    "inteval": 60,
+    "format": "<span font='Material Symbols Rounded'>hard_disk</span>",
+    "tooltip-format": "Available Space: {free}\n Used Space: {used} / {total}"
+   },
+
+   "clock": {
+     "interval": 60,
+     "markup": true,
+     "format": "<span font='14' weight='bold'>{0:%H:%M}</span>\n<span font='10'>{0:%b %d %Y}</span>",
+     "align": 0.0,
+     "tooltip": false
+   },
+
+   "battery": {
+     "interval": 1,
+     "states":{
+        "warning": 30,
+	"critical": 15
+     },
+     "markup": true,
+     "format": "{icon}",
+     "format-icons": [
+       "<span font='Material Symbols Rounded'>battery_android_0</span>",
+       "<span font='Material Symbols Rounded'>battery_android_1</span>",
+       "<span font='Material Symbols Rounded'>battery_android_2</span>",
+       "<span font='Material Symbols Rounded'>battery_android_3</span>",
+       "<span font='Material Symbols Rounded'>battery_android_4</span>",
+       "<span font='Material Symbols Rounded'>battery_android_5</span>",
+       "<span font='Material Symbols Rounded'>battery_android_6</span>",
+       "<span font='Material Symbols Rounded'>battery_android_full</span>"
+     ],
+     "tooltip-format": "{capacity}%",
+     "format-charging": "<span font='Material Symbols Rounded'>battery_android_frame_bolt</span>"
+   },
+   "backlight": {
+     "device": "intel_backlight",
+     "format": "{icon}",
+     "format-icons": [
+       "<span font='Material Symbols Rounded'>brightness_1</span>",
+       "<span font='Material Symbols Rounded'>brightness_2</span>",
+       "<span font='Material Symbols Rounded'>brightness_3</span>",
+       "<span font='Material Symbols Rounded'>brightness_4</span>",
+       "<span font='Material Symbols Rounded'>brightness_5</span>",
+       "<span font='Material Symbols Rounded'>brightness_6</span>",
+       "<span font='Material Symbols Rounded'>brightness_7</span>"
+     ],
+     "interval": 2,
+     "on-scroll-up": "sh -c 'brightnessctl set +1%'",
+     "on-scroll-down": "sh -c 'brightnessctl set 1%-'",
+     "tooltip-format": "{percent}%"
+   },
+   "network": {
+     "interval": 5,
+     "format": "{icon}",
+     "format-icons":{
+      "wifi": [
+       "<span font='Material Symbols Rounded'>wifi_1_bar</span>",
+       "<span font='Material Symbols Rounded'>wifi_2_bar</span>",
+       "<span font='Material Symbols Rounded'>wifi</span>"
+      ],
+      "disconnected": "<span font='Material Symbols Rounded'>wifi_off</span>"
+     },
+     "tooltip-format": "Network Name: {essid}\n Signal Strength: {signalStrength}%\n Frequency: {frequency}GHz",
+     "on-click": "nmgui"
+   },
+   "pulseaudio": {
+     "markup": true,
+     "format": "{icon}",
+     "format-muted": "<span font='Material Symbols Rounded'>volume_off</span>",
+     "format-icons": [
+       "<span font='Material Symbols Rounded'>volume_mute</span>",  
+       "<span font='Material Symbols Rounded'>volume_down</span>",   
+       "<span font='Material Symbols Rounded'>volume_up</span>"      
+     ],
+     "on-click": "pavucontrol",
+     "tooltip-format": "Listening On: {desc}\n{volume}%"
+   },
+   "image#start": {
+     "path": "/home/mica/.config/waybar/imgs/hyprland.png",
+     "size": 30,
+     "on-click": "~/.config/waybar/scripts/start-button.sh",
+     "tooltip": false
+   },
+   "custom/nowplaying": {
+      "interval": 1,
+      "markup": true,
+      "exec": "/home/mica/.config/waybar/scripts/nowplaying.sh",
+      "return-type": "string",
+      "escape": false,
+      "format": "{}" ,
+      "on-click": "playerctl play-pause"
+ }
+}
+
+

@@ -1,0 +1,141 @@
+@import url("file:///home/mica/.cache/wal/colors-waybar.css");
+@import url("/home/mica/.cache/waybar/nowplaying.css");
+
+
+*{
+	font-family: "Montserrat", "Material Symbols Outlined", sans-serif;
+	color: rgba(220,220,220, 1);
+}
+
+#waybar {
+	background: transparent;
+	box-shadow: none;
+}
+
+#dateandtime {
+	padding: 0 20px;
+	background: rgba(15,15,15, 0.35);
+	border-radius: 10px;
+	color: @color15;
+	border: 1px solid #333333;
+	padding-left: 8px;
+	padding-top: 8px;
+	padding-bottom: 0px;
+}
+
+#systemcontrol {
+        padding: 0 20px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+	font-size: 25px;
+	margin-right: 10px
+}
+
+#image {
+        padding: 0 18px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 25px;
+        margin-right: 8px
+}
+
+#custom-nowplaying {
+    padding: 0 20px;
+    border-radius: 10px;
+    color: @color15;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 15px;
+    margin-right: 10px;
+    background-color: rgba(0,0,0,0.99); 
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#custom-notification {
+        padding: 0 18px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 25px;
+        margin-right: 8px
+}
+
+#systeminfo {
+        padding: 0 18px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 25px;
+        margin-right: 8px
+}
+
+#custom-weather {
+        padding: 0 18px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 16px;
+        margin-right: 8px
+}
+
+#backlight {
+	padding-right: 7px;
+	padding-left: 7px;
+	font-size: 22px
+}
+
+#battery {
+	padding-left: 7px;
+	padding-top: 2px;
+}
+
+#memory, #disk {
+    padding-left: 10px
+}
+
+#cpu{
+        font-size: 30px
+}
+
+#network {
+	padding-right: 7px;
+	font-size: 18px
+}
+
+#pulseaudio {
+	padding-top: 2px;
+	font-size: 27px
+}
+
+#workspaces {
+        padding: 0 18px;
+        background: rgba(15,15,15, 0.35);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 14px;
+        margin-right: 8px
+}
+
+#workspaces button.active {
+        padding: 0 18px;
+        margin: 5px;
+        background: rgba(15,15,15, 1);
+        border-radius: 10px;
+        color: @color15;
+        border: 1px solid #333333;
+        font-size: 18px;
+        font-weight: bold
+}
+
+
+
+
