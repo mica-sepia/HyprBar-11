@@ -4,6 +4,31 @@
 Preview:
 <img width="1921" height="72" alt="image" src="https://github.com/user-attachments/assets/d41503c0-da5c-45d5-b0b4-c203556a373c" />
 
+## Install Script
+**SUPPORTED DISTROS**
+- Arch Linux
+- Arch Based Linux (archbox, EndeavourOS, etc.)
+- Fedora Workstation 43 (With COPR Repos)
+
+**CONDITIONALLY SUPPORTED DISTROS**
+- Debian
+- Ubuntu
+
+**UNSUPPORTED (as of now)**
+- NixOS
+- Gentoo
+- openSUSE
+
+
+Run this curl command to (hopefully) install this automatically!
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mica-sepia/HyprBar-11/main/install.sh)
+```
+*If that doesnt work then try this*
+```bash
+curl -fsSL https://raw.githubusercontent.com/mica-sepia/HyprBar-11/main/install.sh | bash
+```
+
 ## Features:
 - Modular Placement; Place your modules in any order you want easily!
 
